@@ -2,14 +2,12 @@
 
 exports[`<TextComponent /> should match snapshot 1`] = `
 .c0 {
-  font-size: 2.4rem;
+  font-size: 1.6rem;
 }
 
 <p
   class="c0"
 >
-  <h1>
-    Children
-  </h1>
+  Children
 </p>
 `;
