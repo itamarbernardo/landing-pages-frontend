@@ -67,18 +67,14 @@ describe('<Heading />', () => {
   //   `);
   // });
 
-  // it('should render correct font-size when using mobile', () => {
-  //   const { rerender } = renderTheme(<Heading size="huge">texto</Heading>);
-  //   const heading = screen.getByRole('heading', { name: 'texto' });
+  it('should render correct font-size when using mobile', () => {
+    const { rerender } = renderTheme(<Heading size="huge">texto</Heading>);
+    const heading = screen.getByRole('heading', { name: 'texto' });
 
-  //   expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyleRule(
-  //     'font-size',
-  //     theme.font.sizes.xlarge,
-  //     {
-  //       media: theme.media.lteMedium,
-  //     },
-  //   );
-  // });
+    expect(screen.getByRole('heading', { name: 'texto' })).toHaveStyleRule('font-size', theme.font.sizes.xlarge, {
+      media: '(max-width:  768px)',
+    });
+  });
 
   // it('should render with uppercase letters', () => {
   //   const {debug} = renderTheme(<Heading uppercase={true}>texto</Heading>);
