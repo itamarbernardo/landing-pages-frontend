@@ -7,4 +7,4 @@ describe('<Home />', () => {
   it('shold render home', () => {
     renderTheme(<Home />);
   });
-})
+});
