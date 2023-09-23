@@ -850,7 +850,11 @@ exports[`<Base /> should render a snapshot 1`] = `
         <h1>
           <p
             class="c15 c16"
-          />
+          >
+            <p>
+              Teste de footer
+            </p>
+          </p>
         </h1>
       </div>
     </footer>
