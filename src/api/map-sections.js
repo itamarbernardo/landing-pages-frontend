@@ -1,6 +1,6 @@
 export const mapSections = (sections = []) => {
   return sections.map((section) => {
-    if (section.__component === 'section.section-two-columns') {
+    if (section.__component === 'section.section-two-colums') {
       return mapSectionTwoColumns(section);
     }
     if (section.__component === 'section.section-content') {

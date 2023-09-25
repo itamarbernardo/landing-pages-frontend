@@ -57,7 +57,7 @@ describe('map-sections', () => {
       id: '602fdf2d540c00269e056178',
     });
     expect(data.background).toBe(true);
-    expect(data.component).toBe('section.section-two-columns');
+    expect(data.component).toBe('section.section-two-colums');
     expect(data.sectionId).toBe('contact');
     expect(data.srcImg).toBe('a.svg');
     expect(data.text).toBe('abc');

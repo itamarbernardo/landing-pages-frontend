@@ -5,6 +5,11 @@ import { mockBase } from '../Base/mock';
 import { PageNotFound } from '../PageNotFound';
 import { Loading } from '../Loading';
 
+import { GridText } from '../../components/GridText';
+import { GridImage } from '../../components/GridImage';
+import { GridContent } from '../../components/GridContent';
+import { GridTwoColumn } from '../../components/GridTwoColumn';
+
 function Home() {
   const [data, setData] = useState([]);
 
@@ -36,7 +41,35 @@ function Home() {
     return <Loading />;
   }
 
-  return <Base {...mockBase} />;
+  const { menu, sections, footerHtml, slug } = data;
+  const { links, text, link, srcImg } = menu;
+  console.log(links);
+  return (
+    <Base links={links} footerHtml={footerHtml} logoData={{ text, link, srcImg }}>
+      {sections.map((section, index) => {
+        const { component } = section;
+        const key = `${slug}-${index}`;
+
+        if (component === 'section.section-two-colums') {
+          return <GridTwoColumn key={key} {...section} />;
+        }
+
+        if (component === 'section.section-content') {
+          return <GridContent key={key} {...section} />;
+        }
+
+        if (section.__component === 'section.section-grid') {
+          if (section.text_grid.length > 0) {
+            const updatedSection = { ...section, grid: section.text_grid };
+            return <GridText key={key} {...updatedSection} />;
+          } else if (section.image_grid.length > 0) {
+            const updatedSection = { ...section, grid: section.image_grid };
+            return <GridImage key={key} {...updatedSection} />;
+          }
+        }
+      })}
+    </Base>
+  );
 }
 
 export default Home;

@@ -3,9 +3,11 @@ export const mapMenu = (menu = {}) => {
     open_in_new_tab: newTab = false,
     logo_text: text = '',
     logo_link: link = '',
-    logo: { url: srcImg = '' } = '',
-    menu: links = [],
+    //logo: { url: srcImg = '' } = '',
+    links: links = [],
   } = menu;
+
+  const srcImg = menu.logo && menu.logo.url ? menu.logo.url : '';
 
   return {
     newTab,
@@ -18,6 +20,7 @@ export const mapMenu = (menu = {}) => {
 
 export const mapMenuLinks = (links = []) => {
   return links.map((item) => {
+    console.log('Item: ', item);
     const { open_in_new_tab: newTab = false, link_text: children = '', url: link = '' } = item;
 
     return {
